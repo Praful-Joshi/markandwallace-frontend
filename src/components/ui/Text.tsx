@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type Variant = 'heading' | 'subheading' | 'body' | 'muted'
+type Variant = 'heading' | 'subheading' | 'body' | 'muted' | 'brandName'
 
 type Props = {
   variant?: Variant
@@ -13,6 +13,7 @@ const variants: Record<Variant, string> = {
   subheading: 'text-lg font-medium text-white',
   body: 'text-base text-white',
   muted: 'text-sm text-white/70',
+  brandName: 'text-xl font-bold text-orange-400',
 }
 
 export function Text({ variant = 'body', children, className = '' }: Props) {

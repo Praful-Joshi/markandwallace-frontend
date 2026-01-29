@@ -5,9 +5,10 @@ import { OnboardingSlide } from '@/features/onboarding/components/OnboardingSlid
 export function OnboardingRoute() {
   const [index, setIndex] = useState(0)
   const slide = onboardingSlides[index]
+  const isLastSlide = index === onboardingSlides.length - 1
 
   const next = () => {
-    if (index < onboardingSlides.length - 1) {
+    if (!isLastSlide) {
       setIndex((i) => i + 1)
     } else {
       // later: navigate to auth/home
@@ -16,9 +17,12 @@ export function OnboardingRoute() {
 
   return (
     <OnboardingSlide
+      key={slide.id}
       slide={slide}
       onNext={next}
-      onSkip={() => setIndex(onboardingSlides.length - 1)}
+      onSkip={
+        !isLastSlide ? () => setIndex(onboardingSlides.length - 1) : undefined
+      }
     />
   )
 }

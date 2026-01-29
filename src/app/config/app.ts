@@ -1,1 +1,1 @@
-export const APP_NAME = 'Roadtripper'
+export const APP_NAME = 'Roadtripper.'
