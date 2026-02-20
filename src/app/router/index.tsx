@@ -5,7 +5,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div className="min-h-screen bg-[#f2f2f2] flex justify-center">
+      <div className="min-h-screen bg-[#ffffff] flex justify-center">
         <div className="w-full max-w-sm p-6 space-y-10">
           <div className="text-title3 text-neutral-700">BUTTON</div>
 
@@ -17,8 +17,10 @@ const router = createBrowserRouter([
           </div>
 
           <div className="space-y-4">
-            <Button variant="text">Button</Button>
-            <Button variant="text" disabled>
+            <Button variant="text" className="w-full">
+              Button
+            </Button>
+            <Button variant="text" disabled className="w-full">
               Button
             </Button>
           </div>

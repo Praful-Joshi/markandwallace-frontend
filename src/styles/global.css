@@ -2,20 +2,20 @@
 
 @theme {
   /* Colors */
-  --color-primary-900: #281c9d;
-  --color-primary-700: #5655b9;
-  --color-primary-500: #a8a3d7;
-  --color-primary-100: #f2f1f9;
+  --color-primary-1: #281c9d;
+  --color-primary-2: #5655b9;
+  --color-primary-3: #a8a3d7;
+  --color-primary-4: #f2f1f9;
 
-  --color-neutral-900: #343434;
-  --color-neutral-700: #898989;
-  --color-neutral-600: #9b9b9b;
-  --color-neutral-500: #cacaca;
-  --color-neutral-200: #e0e0e0;
-  --color-neutral-100: #ffffff;
+  --color-neutral-1: #343434;
+  --color-neutral-2: #898989;
+  --color-neutral-3: #989898;
+  --color-neutral-4: #cacaca;
+  --color-neutral-5: #e0e0e0;
+  --color-neutral-6: #ffffff;
 
   --color-semantic-error: #ff4267;
-  --color-semantic-info: #0089fe;
+  --color-semantic-info: #0890fe;
   --color-semantic-warning: #ffaf2a;
   --color-semantic-success: #52d5ba;
   --color-semantic-danger: #fb6b18;
@@ -42,13 +42,23 @@
 
   --text-body1: 16px;
   --text-body1--line-height: 24px;
+  --text-body1--font-weight: 500;
 
   --text-body2: 14px;
   --text-body2--line-height: 20px;
+  --text-body2--font-weight: 400;
 
-  --text-caption: 12px;
-  --text-caption--line-height: 16px;
-  --text-caption--font-weight: 500;
+  --text-body3: 14px;
+  --text-body3--line-height: 20px;
+  --text-body3--font-weight: 500;
+
+  --text-caption1: 12px;
+  --text-caption1--line-height: 16px;
+  --text-caption1--font-weight: 600;
+
+  --text-caption2: 14px;
+  --text-caption2--line-height: 20px;
+  --text-caption2--font-weight: 500;
 }
 
 *,

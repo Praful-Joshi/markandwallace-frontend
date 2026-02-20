@@ -14,17 +14,17 @@ const base =
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "h-12 px-6 text-body1 bg-primary-900 text-neutral-100 hover:bg-primary-700",
-  text: "text-body2 text-primary-900 hover:underline",
-  icon: "h-12 w-12 bg-primary-900 text-neutral-100",
-  link: "text-body2 text-primary-900 underline underline-offset-2",
+    "h-12 px-6 text-body1 bg-primary-1 text-neutral-6 hover:bg-primary-700",
+  text: "text-body1 text-primary-1 hover:underline",
+  icon: "h-10 w-10 bg-primary-1 text-neutral-6",
+  link: "text-caption1 text-primary-1 underline underline-offset-2",
 };
 
 const disabledStyles: Record<ButtonVariant, string> = {
-  primary: "bg-primary-100 text-neutral-500",
-  text: "text-neutral-500",
-  icon: "bg-primary-100 text-neutral-500",
-  link: "text-neutral-500",
+  primary: "h-12 px-6 text-body1 bg-primary-4 text-neutral-6",
+  text: "text-body1 text-neutral-4",
+  icon: "h-10 w-10 bg-primary-4 text-neutral-6",
+  link: "text-body1 text-neutral-4 underline underline-offset-2",
 };
 
 export function Button({
@@ -37,8 +37,7 @@ export function Button({
 }: ButtonProps) {
   const cls = [
     base,
-    variants[variant],
-    disabled ? disabledStyles[variant] : "",
+    disabled ? disabledStyles[variant] : variants[variant],
     disabled ? "cursor-not-allowed pointer-events-none" : "cursor-pointer",
     className,
   ]
