@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# Mark & Wallace — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend project that recreates the [iBank Figma design](https://www.figma.com/design/8inIG2FAaDbIaXEXS0GQmF/iBank---Banking---E-Money-Management-App-%7C-FinPay-%7C-Digital-%7C-Finance-Mobile-Banking-App-Ui-Kit--Community-) as a demonstration of how to design and develop modern frontend projects efficiently, scalably, and in a testable way.
 
-Currently, two official plugins are available:
+## Goals
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Faithfully implement a professional Figma design in code
+- Showcase a scalable frontend architecture based on [Bulletproof React](https://github.com/alan2207/bulletproof-react)
+- Establish patterns and conventions that hold up as the codebase grows
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Purpose      | Library                    |
+| ------------ | -------------------------- |
+| Framework    | React 19 + TypeScript      |
+| Build tool   | Vite                       |
+| Styling      | Tailwind CSS v4            |
+| Routing      | React Router v7            |
+| Server state | TanStack Query v5          |
+| Client state | Zustand v5                 |
+| HTTP         | Axios                      |
+| Animation    | Framer Motion              |
+| Linting      | ESLint + TypeScript ESLint |
+| Formatting   | Prettier                   |
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── app/
+│   ├── config/       # App-level constants and environment variables
+│   ├── providers/    # All React providers composed in one place
+│   └── router/       # Route definitions
+├── assets/           # Fonts, icons, images
+├── components/
+│   └── ui/           # Shared, reusable UI components (Button, Input, etc.)
+├── features/         # Feature modules — each owns its components, hooks, and services
+├── hooks/            # Shared custom hooks
+├── lib/              # Third-party library configuration (Axios instance, QueryClient)
+├── services/         # Shared API service functions
+├── store/            # Zustand stores
+├── styles/           # Global CSS and Tailwind theme (@theme)
+├── types/            # Shared TypeScript types and interfaces
+├── utils/            # Utility and helper functions
+└── main.tsx          # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Install dependencies
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Lint
+npm run lint
 ```
+
+## Environment Variables
+
+Create a `.env` file in the root:
+
+```
+VITE_API_URL=http://localhost:3000
+```
+
+All environment variables must be prefixed with `VITE_` to be accessible in the app.
+
+## Architecture Notes
+
+**Feature-first organisation** — as the app grows, new functionality lives in `src/features/<feature-name>/` with its own components, hooks, and services colocated. Nothing leaks into the global namespace until it genuinely needs to be shared.
+
+**Single provider entry point** — all React context providers are composed in `app/providers/AppProviders.tsx`. Adding a new provider means editing one file.
+
+**Configured lib instances** — Axios and TanStack QueryClient are configured once in `src/lib/` and imported everywhere. Auth headers, error handling, and retry logic live here, not scattered across components.
+
+**Tailwind v4 `@theme`** — the entire design token system (colors, typography, shadows) is defined in `src/styles/global.css` using the `@theme` directive. No `tailwind.config.ts` needed.
