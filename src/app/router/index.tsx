@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,17 @@ const router = createBrowserRouter([
           <Button variant="link" href="/test">
             Link
           </Button>
+        </div>
+        <div className="flex flex-wrap gap-4 p-6">
+          <div className="text-title3 text-neutral-700">CARD</div>
+          <Card variant="beneficiary-add" />
+          <Card
+            variant="beneficiary-user"
+            label="Amanda"
+            imageSrc="https://i.pravatar.cc/100"
+          />
+          <Card variant="account" label="Account and Card" />
+          <Card variant="transfer" label="Transfer via card number" />
         </div>
       </div>
     ),
