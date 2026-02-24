@@ -3,10 +3,14 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Tab } from "@/components/ui/Tab";
 import { TabBar } from "@/components/ui/TabBar";
-import homeIcon from "@/assets/icons/24.svg";
-import searchIcon from "@/assets/icons/44.svg";
-import messageIcon from "@/assets/icons/23.svg";
-import settingIcon from "@/assets/icons/22.svg";
+import { Row } from "@/components/ui/Row";
+import homeIcon from "@/assets/icons/ 24.svg";
+import searchIcon from "@/assets/icons/ 44.svg";
+import messageIcon from "@/assets/icons/ 23.svg";
+import settingIcon from "@/assets/icons/ 22.svg";
+import waterIcon from "@/assets/icons/ 22.svg";
+import cameraIcon from "@/assets/icons/ 22.svg";
+import bankIcon from "@/assets/icons/ 22.svg";
 
 const TAB_ITEMS = [
   { key: "home", label: "Home", icon: homeIcon },
@@ -44,7 +48,6 @@ export function DevPage() {
           Link
         </Button>
       </section>
-
       <section className="space-y-4">
         <div className="text-title2 text-neutral-1">CARD</div>
         <div className="flex flex-wrap gap-4">
@@ -58,7 +61,6 @@ export function DevPage() {
           <Card variant="transfer" label="Transfer via card number" />
         </div>
       </section>
-
       <section className="space-y-4">
         <div className="text-title2 text-neutral-1">TAB</div>
         <div className="max-w-sm space-y-3">
@@ -66,7 +68,6 @@ export function DevPage() {
           <Tab label="Tab" />
         </div>
       </section>
-
       <section className="space-y-4">
         <div className="text-title2 text-neutral-1">TAB BAR</div>
         <TabBar
@@ -74,6 +75,64 @@ export function DevPage() {
           activeKey={activeBar}
           onChange={setActiveBar}
         />
+      </section>
+      <section className="space-y-4">
+        <div className="text-title2 text-neutral-1">ROW</div>
+        <div className="bg-neutral-6 rounded-2xl overflow-hidden">
+          <Row variant="address" address="1656 Union Street" distance="50m" />
+          <Row variant="info" label="Password" />
+          <Row
+            variant="user"
+            name="Push"
+            phone="12788980890"
+            imageSrc="https://i.pravatar.cc/100?img=3"
+          />
+          <Row
+            variant="transaction-screen-deduction"
+            icon={waterIcon}
+            title="Water Bill"
+            status="Unsuccessfully"
+            amount="$280"
+          />
+          <Row
+            variant="transaction-screen-increment"
+            icon={waterIcon}
+            title="Water Bill"
+            status="Unsuccessfully"
+            amount="$280"
+          />
+          <Row
+            variant="transaction-card-increment"
+            icon={cameraIcon}
+            title="Buy Camera"
+            date="02/11/2018"
+            amount="$1200"
+          />
+          <Row
+            variant="transaction-card-deduction"
+            icon={cameraIcon}
+            title="Buy Camera"
+            date="02/11/2018"
+            amount="$1200"
+          />
+          <Row
+            variant="language-default"
+            flag="https://flagcdn.com/w40/vn.png"
+            language="Vietnamese"
+          />
+          <Row
+            variant="language-selected"
+            flag="https://flagcdn.com/w40/vn.png"
+            language="Vietnamese"
+          />
+          <Row
+            variant="message"
+            icon={bankIcon}
+            title="Bank of America"
+            preview="Bank of America : 256486 is the au..."
+            date="Today"
+          />
+        </div>
       </section>
     </div>
   );

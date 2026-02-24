@@ -1,7 +1,9 @@
+import { Icon } from "@/components/ui/Icon";
+
 type TabBarItem = {
   key: string;
   label: string;
-  icon: string; // path to SVG asset
+  icon: string;
 };
 
 type TabBarProps = {
@@ -24,7 +26,7 @@ export function TabBar({ items, activeKey, onChange }: TabBarProps) {
               onClick={() => onChange(item.key)}
               className="flex items-center gap-2 bg-primary-1 text-neutral-6 rounded-full px-4 py-2 text-caption1 cursor-pointer transition-opacity hover:opacity-80"
             >
-              <img src={item.icon} alt="" className="w-5 h-5" />
+              <Icon src={item.icon} size={20} className="text-neutral-6" />
               {item.label}
             </button>
           );
@@ -35,13 +37,9 @@ export function TabBar({ items, activeKey, onChange }: TabBarProps) {
             key={item.key}
             type="button"
             onClick={() => onChange(item.key)}
-            className="flex items-center justify-center w-10 h-10 cursor-pointer hover:opacity-60 transition-opacity"
+            className="flex items-center justify-center w-10 h-10 cursor-pointer transition-opacity hover:opacity-60 text-neutral-4"
           >
-            <img
-              src={item.icon}
-              alt={item.label}
-              className="w-5 h-5 opacity-40"
-            />
+            <Icon src={item.icon} size={20} className="text-neutral-4" />
           </button>
         );
       })}

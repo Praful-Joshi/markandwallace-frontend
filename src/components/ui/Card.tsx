@@ -1,6 +1,7 @@
 import walletIcon from "@/assets/icons/wallet-43 1.svg";
-import bankIcon from "@/assets/icons/33.svg";
-import plusIcon from "@/assets/icons/12.svg";
+import bankIcon from "@/assets/icons/ 33.svg";
+import plusIcon from "@/assets/icons/ 12.svg";
+import { Icon } from "@/components/ui/Icon";
 
 type CardVariant =
   | "beneficiary-add"
@@ -43,7 +44,7 @@ function CardIcon({
     case "beneficiary-add":
       return (
         <div className="w-14 h-14 rounded-full bg-primary-4 flex items-center justify-center">
-          <img src={plusIcon} alt="" className="w-5 h-5" />
+          <Icon src={plusIcon} className="text-neutral-4" />
         </div>
       );
     case "beneficiary-user":
@@ -55,9 +56,10 @@ function CardIcon({
         />
       );
     case "account":
-      return <img src={walletIcon} alt="" className="w-8 h-8" />;
+      return <Icon src={walletIcon} className="w-8 h-8 text-neutral-4" />;
+
     case "transfer":
-      return <img src={bankIcon} alt="" className="w-8 h-8" />;
+      return <Icon src={bankIcon} className="w-8 h-8 text-neutral-4" />;
   }
 }
 
