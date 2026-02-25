@@ -33,8 +33,10 @@ export function DevPage() {
           <Button className="w-full">Sign in</Button>
         </div>
         <div className="max-w-sm space-y-4">
-          <Button variant="text">Button</Button>
-          <Button variant="text" disabled>
+          <Button variant="text" className="w-full">
+            Button
+          </Button>
+          <Button variant="text" className="w-full" disabled>
             Button
           </Button>
         </div>

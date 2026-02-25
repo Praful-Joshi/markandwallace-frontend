@@ -68,7 +68,7 @@ function ChevronRight() {
       height="14"
       viewBox="0 0 8 14"
       fill="none"
-      className="shrink-0 text-neutral-4"
+      className="shrink-0 text-neutral-5"
     >
       <path
         d="M1 1L7 7L1 13"
@@ -118,10 +118,10 @@ function AddressRow(props: Extract<RowProps, { variant: "address" }>) {
           fill="currentColor"
         />
       </svg>
-      <span className="text-title3 text-neutral-1 flex-1 text-left">
+      <span className="text-body1 text-neutral-1 flex-1 text-left">
         {props.address}
       </span>
-      <span className="text-body2 text-neutral-4 shrink-0">
+      <span className="text-caption1 text-neutral-3 shrink-0">
         {props.distance}
       </span>
     </button>
@@ -131,7 +131,7 @@ function AddressRow(props: Extract<RowProps, { variant: "address" }>) {
 function InfoRow(props: Extract<RowProps, { variant: "info" }>) {
   return (
     <button type="button" onClick={props.onClick} className={rowBase}>
-      <span className="text-title3 text-neutral-1 flex-1 text-left">
+      <span className="text-body1 text-neutral-1 flex-1 text-left">
         {props.label}
       </span>
       <ChevronRight />
@@ -148,8 +148,8 @@ function UserRow(props: Extract<RowProps, { variant: "user" }>) {
         className="w-11 h-11 rounded-full object-cover shrink-0"
       />
       <div className="flex flex-col flex-1 text-left">
-        <span className="text-title3 text-neutral-1">{props.name}</span>
-        <span className="text-body2 text-neutral-4">{props.phone}</span>
+        <span className="text-body1 text-neutral-1">{props.name}</span>
+        <span className="text-caption1 text-neutral-3">{props.phone}</span>
       </div>
     </button>
   );
@@ -166,10 +166,8 @@ function TransactionScreenRow(
     <button type="button" onClick={props.onClick} className={rowBase}>
       <RoundedIcon src={props.icon} />
       <div className="flex flex-col flex-1 text-left">
-        <span className="text-title3 text-neutral-1 underline">
-          {props.title}
-        </span>
-        <span className="text-body2 text-neutral-4">{props.status}</span>
+        <span className="text-body1 text-neutral-1">{props.title}</span>
+        <span className="text-caption1 text-neutral-3">{props.status}</span>
       </div>
       <span
         className={`text-title3 shrink-0 ${isDeduction ? "text-semantic-error" : "text-primary-1"}`}
@@ -191,11 +189,11 @@ function TransactionCardRow(
     <button type="button" onClick={props.onClick} className={rowBase}>
       <RoundedIcon src={props.icon} />
       <div className="flex flex-col flex-1 text-left">
-        <span className="text-body2 text-neutral-1">{props.title}</span>
-        <span className="text-caption1 text-neutral-4">{props.date}</span>
+        <span className="text-body1 text-neutral-1">{props.title}</span>
+        <span className="text-caption1 text-neutral-3">{props.date}</span>
       </div>
       <span
-        className={`text-body2 font-semibold shrink-0 ${isDeduction ? "text-semantic-error" : "text-primary-1"}`}
+        className={`text-title3 font-semibold shrink-0 ${isDeduction ? "text-semantic-error" : "text-primary-1"}`}
       >
         {isDeduction ? `- ${props.amount}` : `+ ${props.amount}`}
       </span>
@@ -215,10 +213,10 @@ function LanguageRow(
       <img
         src={props.flag}
         alt={props.language}
-        className="w-8 h-8 rounded-md object-cover shrink-0"
+        className="w-10 h-8 ml-0.5 rounded-sm object-cover"
       />
       <span
-        className={`text-body2 flex-1 text-left ${isSelected ? "text-neutral-1 font-semibold" : "text-neutral-4"}`}
+        className={`text-body1 flex-1 text-left ${isSelected ? "text-neutral-1" : "text-neutral-3"}`}
       >
         {props.language}
       </span>
@@ -233,14 +231,14 @@ function MessageRow(props: Extract<RowProps, { variant: "message" }>) {
       <RoundedIcon src={props.icon} />
       <div className="flex flex-col flex-1 text-left min-w-0">
         <div className="flex items-center justify-between gap-2">
-          <span className="text-title3 text-neutral-1 truncate">
+          <span className="text-body1 text-neutral-1 truncate">
             {props.title}
           </span>
-          <span className="text-caption1 text-neutral-4 shrink-0">
+          <span className="text-caption2 text-neutral-3 shrink-0">
             {props.date}
           </span>
         </div>
-        <span className="text-body2 text-neutral-4 truncate">
+        <span className="text-caption1 text-neutral-3 truncate">
           {props.preview}
         </span>
       </div>
