@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/Card";
 import { Tab } from "@/components/ui/Tab";
 import { TabBar } from "@/components/ui/TabBar";
 import { Row } from "@/components/ui/Row";
+import { TextField, TextFieldWithChevron } from "@/components/ui/TextField";
+
 import homeIcon from "@/assets/icons/ 24.svg";
 import searchIcon from "@/assets/icons/ 44.svg";
 import messageIcon from "@/assets/icons/ 23.svg";
@@ -20,7 +22,13 @@ const TAB_ITEMS = [
 ];
 
 export function DevPage() {
+  // state
   const [activeBar, setActiveBar] = useState("home");
+  const [text, setText] = useState("");
+  const [dropdown, setDropdown] = useState("");
+  const [search, setSearch] = useState("");
+  const [exchange, setExchange] = useState("");
+  const [chevron, setChevron] = useState("Text input");
 
   return (
     <div className="min-h-screen bg-neutral-6 p-6 space-y-16">
@@ -135,6 +143,58 @@ export function DevPage() {
             date="Today"
           />
         </div>
+      </section>
+      <section className="space-y-6 max-w-sm">
+        <div className="text-title2 text-neutral-1">TEXT FIELD</div>
+
+        <TextField
+          value={text}
+          onChange={setText}
+          placeholder="Text input"
+          caption="Caption"
+        />
+
+        <TextField
+          value={text}
+          onChange={setText}
+          placeholder="Text input"
+          label="Label"
+          caption="Caption"
+        />
+
+        <TextField
+          variant="dropdown"
+          value={dropdown}
+          onChange={setDropdown}
+          placeholder="Password"
+          options={["Option 1", "Option 2"]}
+          onSelect={(val) => console.log(val)}
+          caption="Caption"
+        />
+
+        <TextField
+          variant="search"
+          value={search}
+          onChange={setSearch}
+          placeholder="Bank"
+        />
+
+        <TextFieldWithChevron
+          value={chevron}
+          onChange={setChevron}
+          label="Label"
+          caption="Caption"
+        />
+
+        <TextField
+          variant="exchange"
+          value={exchange}
+          onChange={setExchange}
+          placeholder="Text input"
+          label="From"
+          currency="USD"
+          onCurrencyChange={() => console.log("change currency")}
+        />
       </section>
     </div>
   );
