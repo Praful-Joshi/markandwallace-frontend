@@ -29,7 +29,7 @@ const containerVariants: Record<CardVariant, string> = {
 const labelVariants: Record<CardVariant, string> = {
   "beneficiary-add": "",
   "beneficiary-user": "text-body-3 text-neutral-1 text-center",
-  account: "text-caption2 text-neutral-4 text-center leading-tight px-2",
+  account: "text-caption2 text-neutral-3 text-center leading-tight px-2",
   transfer: "text-caption2 text-neutral-6 text-left leading-tight",
 };
 
@@ -44,7 +44,7 @@ function CardIcon({
     case "beneficiary-add":
       return (
         <div className="w-14 h-14 rounded-full bg-primary-4 flex items-center justify-center">
-          <Icon src={plusIcon} className="text-neutral-4" />
+          <Icon src={plusIcon} className="text-neutral-6" />
         </div>
       );
     case "beneficiary-user":
